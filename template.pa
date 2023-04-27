@@ -1,0 +1,66 @@
+<br />
+<h3>Alcuni cenni sul comune di [TYPE]</h3>
+<!-- <p>[TYPEDESCRIPTION]</p> -->
+<div id="Province-Comuni"></div>
+[EXPRESSIONTYPE:=:Toscana]
+<img class="img-responsive" style="width:100%" src="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE].jpg">
+<div include-html="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE].html"></div>
+[/EXPRESSIONTYPE:=:Toscana]
+[EXPRESSIONTYPE:=:Pistoia]
+<img class="img-responsive" style="width:100%" src="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE:0]/[TYPE].jpg">
+<div include-html="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE:0]/[TYPE].html"></div>
+[/EXPRESSIONTYPE:=:Pistoia]
+[EXPRESSIONTYPE:=:Lucca]
+<img class="img-responsive" style="width:100%" src="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE:0]/[TYPE].jpg">
+<div include-html="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE:0]/[TYPE].html"></div>
+[/EXPRESSIONTYPE:=:Lucca]
+[EXPRESSIONTYPE:=:Firenze]
+<img class="img-responsive" style="width:100%" src="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE:0]/[TYPE].jpg">
+<div include-html="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE:0]/[TYPE].html"></div>
+[/EXPRESSIONTYPE:=:Firenze]
+[EXPRESSIONTYPE:=:Pisa]
+<img class="img-responsive" style="width:100%" src="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE:0]/[TYPE].jpg">
+<div include-html="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE:0]/[TYPE].html"></div>
+[/EXPRESSIONTYPE:=:Pisa]
+[EXPRESSIONTYPE:=:Prato]
+<img class="img-responsive" style="width:100%" src="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE:0]/[TYPE].jpg">
+<div include-html="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE:0]/[TYPE].html"></div>
+[/EXPRESSIONTYPE:=:Prato]
+<img class="img-responsive" style="width:100%" src="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE:0]/[TYPE:1]/[TYPE].jpg">
+<hr>
+<!-- partial:index.partial.html -->
+<div include-html="https://raw.githubusercontent.com/Scippy/province-comuni/main/[TYPE:0]/[TYPE:1]/[TYPE].html"></div>
+<!-- partial -->
+  <script>
+  (function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {
+            elmnt.outerHTML = this.responseText;
+          }
+          if (this.status == 404) {
+            elmnt.outerHTML = "Page not found.";
+          }
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      };
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+})();
+  </script>
